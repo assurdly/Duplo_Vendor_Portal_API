@@ -1,0 +1,1967 @@
+{
+	"info": {
+		"_postman_id": "0a226501-27f4-4d32-9118-48db1167724a",
+		"name": "Vendor Portal API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign In",
+					"item": [
+						{
+							"name": "Sign in",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a3dab347-07b7-4256-b7dc-2eef5d1d73fb",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body contains properties status, access_token, refresh_token,_token_type, expires\", function () {",
+											"    pm.expect(jsonData).to.have.property(\"status\").to.not.be.empty;",
+											"      pm.expect(jsonData).to.have.property(\"access_token\").to.not.be.empty;",
+											"        pm.expect(jsonData).to.have.property(\"refresh_token\").to.not.be.empty;",
+											"          pm.expect(jsonData).to.have.property(\"token_type\").to.not.be.empty;",
+											"            pm.expect(jsonData).to.have.property(\"expires\")",
+											"            pm.expect(typeof jsonData.expires).to.eql(\"number\")",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "d8138f59-3374-4a39-928d-18e6d9e06089",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"adeolavendor@yopmail.com\",\n    \"password\": \"Qwerty123@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/login"
+							},
+							"response": [
+								{
+									"id": "0caa6583-31ca-4df2-9b43-bb9f6fbbbd49",
+									"name": "Sign in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"ololade28@yopmail.com\",\n    \"password\": \"%xmo4Q1h2O$zdERk\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://0.0.0.0:3030/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4MDY4NDg3ODIzIiwiaWF0IjoxNjk5MDA3MDU0LCJleHAiOjE2OTkwMDg4NTQsImlzcyI6IkR1cGxvIn0.jVWDW_fbIrE120_lJrsTQ9T8_Wr6uRLspTBfofgP1X0\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImlhdCI6MTY5OTAwNzA1NCwiZXhwIjoxNzAxNTk5MDU0LCJpc3MiOiJEdXBsbyJ9.GDinhqffikycFTuTLaMkaIxsgu9y6oEdL9oOabe1CKQ\",\n    \"token_type\": \"bearer\",\n    \"expires\": 1800\n}"
+								}
+							]
+						},
+						{
+							"name": "Sign in with invalid email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "74708f9e-df70-4490-8a24-9d8ae6b0a9f3",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body contains properties status, error, error_message\", function () {",
+											"    pm.expect(jsonData).to.have.property(\"status\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"error\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"error_message\").to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "7bfe413c-d6d4-471e-a7f7-5c4e6b28d06f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"mosesgeorge2605@@gmail.com\",\n    \"password\": \"Qwerty123@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/login"
+							},
+							"response": [
+								{
+									"id": "32461b41-0163-4cbd-9fa8-1dc53e56faad",
+									"name": "Sign in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"ololade28@yopmail.com\",\n    \"password\": \"%xmo4Q1h2O$zdERk\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://0.0.0.0:3030/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4MDY4NDg3ODIzIiwiaWF0IjoxNjk5MDA3MDU0LCJleHAiOjE2OTkwMDg4NTQsImlzcyI6IkR1cGxvIn0.jVWDW_fbIrE120_lJrsTQ9T8_Wr6uRLspTBfofgP1X0\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImlhdCI6MTY5OTAwNzA1NCwiZXhwIjoxNzAxNTk5MDU0LCJpc3MiOiJEdXBsbyJ9.GDinhqffikycFTuTLaMkaIxsgu9y6oEdL9oOabe1CKQ\",\n    \"token_type\": \"bearer\",\n    \"expires\": 1800\n}"
+								}
+							]
+						},
+						{
+							"name": "Sign in with invalid password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "05569676-0b67-45d1-a401-1703c840c24d",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body contains properties status, error, error_message\", function () {",
+											"    pm.expect(jsonData).to.have.property(\"status\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"error\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"error_message\").to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "ce3f6997-49fb-48d7-8496-e93820114f63",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"mosesgeorge2605@gmail.com\",\n    \"password\": \"Password@101\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/login"
+							},
+							"response": [
+								{
+									"id": "f8689c46-42b4-48df-87c6-e7952ddedb16",
+									"name": "Sign in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"ololade28@yopmail.com\",\n    \"password\": \"%xmo4Q1h2O$zdERk\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://0.0.0.0:3030/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4MDY4NDg3ODIzIiwiaWF0IjoxNjk5MDA3MDU0LCJleHAiOjE2OTkwMDg4NTQsImlzcyI6IkR1cGxvIn0.jVWDW_fbIrE120_lJrsTQ9T8_Wr6uRLspTBfofgP1X0\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImlhdCI6MTY5OTAwNzA1NCwiZXhwIjoxNzAxNTk5MDU0LCJpc3MiOiJEdXBsbyJ9.GDinhqffikycFTuTLaMkaIxsgu9y6oEdL9oOabe1CKQ\",\n    \"token_type\": \"bearer\",\n    \"expires\": 1800\n}"
+								}
+							]
+						}
+					],
+					"id": "e973fd17-ba32-4132-bf69-90cd1a3bed74"
+				},
+				{
+					"name": "Sign Up",
+					"item": [
+						{
+							"name": "Sign up",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7281eee9-e7c9-48ed-9bc7-4a62dc77eee8",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response is a JSON object with status, access_token, refresh_token, token_type, and expires properties\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData).to.be.an('object');",
+											"    pm.expect(jsonData).to.have.property('status');",
+											"    pm.expect(jsonData).to.have.property('access_token');",
+											"    pm.expect(jsonData).to.have.property('refresh_token');",
+											"    pm.expect(jsonData).to.have.property('token_type');",
+											"    pm.expect(jsonData).to.have.property('expires');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "4d0b79f4-4103-4ebb-8630-83b86d84e24a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorName\": \"EmgeeStore\",\n    \"email\": \"mosesgeorge2605@gmail.com\",\n    \"phoneNumber\": \"09167645739\",\n    \"password\": \"Qwerty123@\",\n    \"confirmPassword\": \"Qwerty123@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/signup"
+							},
+							"response": [
+								{
+									"id": "824f3869-1980-49b7-9042-290050c971e8",
+									"name": "Sign in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"ololade28@yopmail.com\",\n    \"password\": \"%xmo4Q1h2O$zdERk\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://0.0.0.0:3030/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4MDY4NDg3ODIzIiwiaWF0IjoxNjk5MDA3MDU0LCJleHAiOjE2OTkwMDg4NTQsImlzcyI6IkR1cGxvIn0.jVWDW_fbIrE120_lJrsTQ9T8_Wr6uRLspTBfofgP1X0\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImlhdCI6MTY5OTAwNzA1NCwiZXhwIjoxNzAxNTk5MDU0LCJpc3MiOiJEdXBsbyJ9.GDinhqffikycFTuTLaMkaIxsgu9y6oEdL9oOabe1CKQ\",\n    \"token_type\": \"bearer\",\n    \"expires\": 1800\n}"
+								}
+							]
+						},
+						{
+							"name": "Sign up with invalid email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9576359b-6223-49a6-a993-5b2967d44b0f",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body has property status, error, error_message\", function () {",
+											"pm.expect(jsonData).to.have.property(\"status\")",
+											"pm.expect(jsonData).to.have.property(\"error\")",
+											"pm.expect(jsonData).to.have.property(\"error_message\").to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "f4b41aa9-8cf6-4d13-931e-01dce9937846",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorName\": \"EmgeeStore\",\n    \"email\": \"mosesgeorge2605@@gmail.com\",\n    \"phoneNumber\": \"09167645739\",\n    \"password\": \"Qwerty123@\",\n    \"confirmPassword\": \"Qwerty123@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/signup"
+							},
+							"response": [
+								{
+									"id": "98b6b398-6c02-44f6-bdc8-702342f21dcc",
+									"name": "Sign in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"ololade28@yopmail.com\",\n    \"password\": \"%xmo4Q1h2O$zdERk\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://0.0.0.0:3030/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4MDY4NDg3ODIzIiwiaWF0IjoxNjk5MDA3MDU0LCJleHAiOjE2OTkwMDg4NTQsImlzcyI6IkR1cGxvIn0.jVWDW_fbIrE120_lJrsTQ9T8_Wr6uRLspTBfofgP1X0\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImlhdCI6MTY5OTAwNzA1NCwiZXhwIjoxNzAxNTk5MDU0LCJpc3MiOiJEdXBsbyJ9.GDinhqffikycFTuTLaMkaIxsgu9y6oEdL9oOabe1CKQ\",\n    \"token_type\": \"bearer\",\n    \"expires\": 1800\n}"
+								}
+							]
+						},
+						{
+							"name": "Sign up with invalid phone number",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4183e43d-d319-4bb3-8fc4-14122c16ee34",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body has property status, error, error_message\", function () {",
+											"pm.expect(jsonData).to.have.property(\"status\")",
+											"pm.expect(jsonData).to.have.property(\"error\")",
+											"pm.expect(jsonData).to.have.property(\"error_message\").to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "e43a3736-7218-438f-8364-fec946254158",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorName\": \"EmgeeStore2\",\n    \"email\": \"mosesgeorge260508@gmail.com\",\n    \"phoneNumber\": \"0045795119\",\n    \"password\": \"Qwerty123@\",\n    \"confirmPassword\": \"Qwerty123@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/signup"
+							},
+							"response": [
+								{
+									"id": "2531ad9a-98eb-42d1-96cb-772777890bd4",
+									"name": "Sign in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"ololade28@yopmail.com\",\n    \"password\": \"%xmo4Q1h2O$zdERk\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://0.0.0.0:3030/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4MDY4NDg3ODIzIiwiaWF0IjoxNjk5MDA3MDU0LCJleHAiOjE2OTkwMDg4NTQsImlzcyI6IkR1cGxvIn0.jVWDW_fbIrE120_lJrsTQ9T8_Wr6uRLspTBfofgP1X0\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImlhdCI6MTY5OTAwNzA1NCwiZXhwIjoxNzAxNTk5MDU0LCJpc3MiOiJEdXBsbyJ9.GDinhqffikycFTuTLaMkaIxsgu9y6oEdL9oOabe1CKQ\",\n    \"token_type\": \"bearer\",\n    \"expires\": 1800\n}"
+								}
+							]
+						},
+						{
+							"name": "Sign up with invalid confirm password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0a686cea-f048-495e-8ef4-c5dc0dcc45a2",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body has property status, error, error_message\", function () {",
+											"pm.expect(jsonData).to.have.property(\"status\")",
+											"pm.expect(jsonData).to.have.property(\"error\")",
+											"pm.expect(jsonData).to.have.property(\"error_message\").to.not.be.empty;",
+											"pm.expect(jsonData.error_message).to.eql(\"Passwords do not match\");",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "68cba591-7131-49af-9b7c-37aee3c2285f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorName\": \"EmgeeStor3e\",\n    \"email\": \"mosesgeorge2606@gmail.com\",\n    \"phoneNumber\": \"09167645738\",\n    \"password\": \"Qwerty123@\",\n    \"confirmPassword\": \"Qwerty1234@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/signup"
+							},
+							"response": [
+								{
+									"id": "cacd90e9-213e-4108-9230-2ebb0205dee6",
+									"name": "Sign in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"ololade28@yopmail.com\",\n    \"password\": \"%xmo4Q1h2O$zdERk\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://0.0.0.0:3030/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4MDY4NDg3ODIzIiwiaWF0IjoxNjk5MDA3MDU0LCJleHAiOjE2OTkwMDg4NTQsImlzcyI6IkR1cGxvIn0.jVWDW_fbIrE120_lJrsTQ9T8_Wr6uRLspTBfofgP1X0\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImlhdCI6MTY5OTAwNzA1NCwiZXhwIjoxNzAxNTk5MDU0LCJpc3MiOiJEdXBsbyJ9.GDinhqffikycFTuTLaMkaIxsgu9y6oEdL9oOabe1CKQ\",\n    \"token_type\": \"bearer\",\n    \"expires\": 1800\n}"
+								}
+							]
+						}
+					],
+					"id": "6f9e27a4-d96a-4609-b05c-b9d3e321d0a0"
+				},
+				{
+					"name": "Verify OTP",
+					"item": [
+						{
+							"name": "Verify OTP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f8970096-52d3-4f84-abae-0da434bace34",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "f474cc01-a7ce-4cb2-be39-6cfee8055f48",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"otp\": \"221344\",\n    \"email\": \"mosesgeorge2605@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/verify-otp"
+							},
+							"response": [
+								{
+									"id": "ae261f29-b25f-4cdb-b2d3-e9269702f116",
+									"name": "Verify OTP",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"otp\": \"329958\",\n    \"email\": \"ijakumo28@yopmail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{vendor_portal_url}}/auth/verify-otp"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Verify OTP with Invalid otp",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d5d12319-67ca-437e-8f94-f7a61fe08fe4",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body has property status, error, error_message\", function () {",
+											"pm.expect(jsonData).to.have.property(\"status\")",
+											"pm.expect(jsonData).to.have.property(\"error\")",
+											"pm.expect(jsonData).to.have.property(\"error_message\").to.not.be.empty;",
+											"pm.expect(jsonData.error_message).to.eql(\"Invalid otp\")",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "17cbc6d6-c66e-4607-aeac-eb7847c7c1f1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"otp\": \"221345\",\n    \"email\": \"mosesgeorge2605@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/verify-otp"
+							},
+							"response": [
+								{
+									"id": "5a69112b-b183-4751-9e0d-576dfbd09156",
+									"name": "Verify OTP",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"otp\": \"329958\",\n    \"email\": \"ijakumo28@yopmail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{vendor_portal_url}}/auth/verify-otp"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Verify OTP with Invalid email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "43df0f15-cc95-4ee9-b473-8e658c4c3556",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body has property status, error, error_message\", function () {",
+											"pm.expect(jsonData).to.have.property(\"status\")",
+											"pm.expect(jsonData).to.have.property(\"error\")",
+											"pm.expect(jsonData).to.have.property(\"error_message\").to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "710da521-82f5-46aa-b74f-a1a2f56b8eb9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"otp\": \"221345\",\n    \"email\": \"mosesgeorge2605@@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/verify-otp"
+							},
+							"response": [
+								{
+									"id": "c919152e-1aba-49ad-bd97-a368e3b0cbda",
+									"name": "Verify OTP",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"otp\": \"329958\",\n    \"email\": \"ijakumo28@yopmail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{vendor_portal_url}}/auth/verify-otp"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						}
+					],
+					"id": "fea84bbd-a2cd-45d0-a42b-fa2d3e2b2cbb"
+				},
+				{
+					"name": "Verify Merchant Invite",
+					"item": [
+						{
+							"name": "Verify merchant Invite",
+							"id": "74ab5331-f6a4-42a2-9db8-e7d68ee1d9be",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\": \"6ca01ff4b0b1cbe8d427b201995c6164:rn07ed2d008ceafb0b2b3d19a3d5e141ffef4cfc63854761e26f2565d034bcaa3ecaa30abe63712992ba184639e8c624f5de6a1cff483309fbf4c4ba03e4d76eb1ee2c64582b95396bbdf7c418e90b5f693554cc732be60bfb14f792afff1d55710a23b7c798bca0fc4c71af8c8416e0ed1ec6fdb147715ea28d3892175ea6c48494c0ce4a2ff7f018469594c80a80602943ee332dda217a41106ab18b71125b8d\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}/auth/verify-merchant-invite"
+							},
+							"response": [
+								{
+									"id": "a5d54efa-e354-4ac8-a70a-50c1e3b3fac1",
+									"name": "Sign in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"ololade28@yopmail.com\",\n    \"password\": \"%xmo4Q1h2O$zdERk\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://0.0.0.0:3030/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4MDY4NDg3ODIzIiwiaWF0IjoxNjk5MDA3MDU0LCJleHAiOjE2OTkwMDg4NTQsImlzcyI6IkR1cGxvIn0.jVWDW_fbIrE120_lJrsTQ9T8_Wr6uRLspTBfofgP1X0\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImlhdCI6MTY5OTAwNzA1NCwiZXhwIjoxNzAxNTk5MDU0LCJpc3MiOiJEdXBsbyJ9.GDinhqffikycFTuTLaMkaIxsgu9y6oEdL9oOabe1CKQ\",\n    \"token_type\": \"bearer\",\n    \"expires\": 1800\n}"
+								}
+							]
+						}
+					],
+					"id": "f63fcfca-b1ab-4635-86cc-d43fac9deda3"
+				},
+				{
+					"name": "Resent Email OTP",
+					"item": [
+						{
+							"name": "Resent Email OTP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "00a208ad-c2c7-425c-8f07-6f9fb93a1aac",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body contains property status and it's successfuk\", function () {",
+											"     pm.expect(jsonData).to.be.an('object');",
+											"     pm.expect(jsonData).to.have.property('status', 'successful');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "f1829c7d-17f2-41d0-987c-fe5b63e77c44",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{vendor_portal_url}}auth/resend-email-otp?email=mosesgeorge2605@gmail.com",
+									"host": [
+										"{{vendor_portal_url}}auth"
+									],
+									"path": [
+										"resend-email-otp"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "mosesgeorge2605@gmail.com"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "0c3f9eea-c26e-48dc-a5da-47955c6bac03",
+									"name": "Sign in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"ololade28@yopmail.com\",\n    \"password\": \"%xmo4Q1h2O$zdERk\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://0.0.0.0:3030/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4MDY4NDg3ODIzIiwiaWF0IjoxNjk5MDA3MDU0LCJleHAiOjE2OTkwMDg4NTQsImlzcyI6IkR1cGxvIn0.jVWDW_fbIrE120_lJrsTQ9T8_Wr6uRLspTBfofgP1X0\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImlhdCI6MTY5OTAwNzA1NCwiZXhwIjoxNzAxNTk5MDU0LCJpc3MiOiJEdXBsbyJ9.GDinhqffikycFTuTLaMkaIxsgu9y6oEdL9oOabe1CKQ\",\n    \"token_type\": \"bearer\",\n    \"expires\": 1800\n}"
+								}
+							]
+						}
+					],
+					"id": "4350739c-e8d2-4cb4-807c-ee08e3496054"
+				},
+				{
+					"name": "Forgot Password",
+					"item": [
+						{
+							"name": "Forgot Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "99cfd87f-07b6-45fc-bf6e-a2737988ba44",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"",
+											"pm.test(\"Body contains properties status and message\", function () {",
+											"pm.expect(jsonData).to.have.property('status', \"SUCCESS\")",
+											"pm.expect(jsonData).to.have.property('message').to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "ed5a31a6-b845-4785-9d09-7b17a9a0d747",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth//password-reset/mosesgeorge2605@gmail.com"
+							},
+							"response": [
+								{
+									"id": "c623a2e2-6896-4e12-a688-ba83b0ea00eb",
+									"name": "Forgot Password",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{vendor_portal_url}}/auth//password-reset/ololade28@yopmail.com"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"message\": \"Password rest link has been sent\"\n}"
+								}
+							]
+						}
+					],
+					"id": "54059131-0164-45c6-94ac-046ddd6b5f5d"
+				},
+				{
+					"name": "Reset Password",
+					"item": [
+						{
+							"name": "Reset Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "108a4751-b3ba-4517-a6b7-bef3ae5d8d76",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body contains property status and it should be successful\", function () {",
+											"    pm.expect(jsonData).to.have.property(\"status\").to.eql(\"SUCCESS\")",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "2360a888-8361-4a46-84f3-75dd5c714e6a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reset_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDRiNTA3ZDkxOWFjYzM0MjQ4MDhhYSIsImlhdCI6MTcwNzUxMDY4NCwiZXhwIjoxNzEwMTAyNjg0LCJpc3MiOiJEdXBsbyJ9.alxf1Gu33on___IA4_mlNjJVCJvJOoInji6BH4JOUUo\",\n    \"vendor_id\": \"6544b507d919acc3424808aa\",\n    \"password\": \"Qwerty1234@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/password-reset"
+							},
+							"response": [
+								{
+									"id": "b9e3556f-6b41-43f8-a700-17ca071f0957",
+									"name": "Reset Password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"reset_token\": \"f81491d46d3e3b6da5b87999a1d8da35bd89fad56c9264d5f246f0ee7ca34acf2c9f64b87bdf27a4d7c5b5ca9cf2c7f4932e84f3cef99a80a3b65911b2c3aa09&id=654a6491f7ee5f3c25ce1ced\",\n    \"vendor_id\": \"654a6491f7ee5f3c25ce1ced\",\n    \"password\": \"Password@101\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{vendor_portal_url}}/auth//password-reset"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Reset Password with invalid refresh_token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "108a4751-b3ba-4517-a6b7-bef3ae5d8d76",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body contains property status, error, error_message\", function () {",
+											"    pm.expect(jsonData).to.have.property(\"status\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"error\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"error_message\").to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "6f5ea31a-ad74-4591-adb0-1b2266440995",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reset_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDRiNTA3ZDkxOWFjYzM0MjQ4MDhhYSIsImlhdCI6MTcwNzUxMDY4NCwiZXhwIjoxNzEwMTAyNjg0LCJpc3MiOiJEdXBsbyJ9.alxf1Gu33on___IA4_mlNjJVCJvJOoInji6BH4JOUU4\",\n    \"vendor_id\": \"6544b507d919acc3424808aa\",\n    \"password\": \"Qwerty1234@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/password-reset"
+							},
+							"response": [
+								{
+									"id": "66a00cb6-8a4d-4a94-9e99-f27a93580847",
+									"name": "Reset Password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"reset_token\": \"f81491d46d3e3b6da5b87999a1d8da35bd89fad56c9264d5f246f0ee7ca34acf2c9f64b87bdf27a4d7c5b5ca9cf2c7f4932e84f3cef99a80a3b65911b2c3aa09&id=654a6491f7ee5f3c25ce1ced\",\n    \"vendor_id\": \"654a6491f7ee5f3c25ce1ced\",\n    \"password\": \"Password@101\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{vendor_portal_url}}/auth//password-reset"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Reset Password with invalid vendor_id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "108a4751-b3ba-4517-a6b7-bef3ae5d8d76",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body contains property status, error, error_message\", function () {",
+											"    pm.expect(jsonData).to.have.property(\"status\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"error\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"error_message\").to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "e6466419-7083-4160-a70b-7c8d86db3bb8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reset_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDRiNTA3ZDkxOWFjYzM0MjQ4MDhhYSIsImlhdCI6MTcwNzUxMDY4NCwiZXhwIjoxNzEwMTAyNjg0LCJpc3MiOiJEdXBsbyJ9.alxf1Gu33on___IA4_mlNjJVCJvJOoInji6BH4JOUUo\",\n    \"vendor_id\": \"6544b507d919acc3424808a2\",\n    \"password\": \"Qwerty1234@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/password-reset"
+							},
+							"response": [
+								{
+									"id": "c4713389-781b-4615-b8cb-1d6a2b371440",
+									"name": "Reset Password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"reset_token\": \"f81491d46d3e3b6da5b87999a1d8da35bd89fad56c9264d5f246f0ee7ca34acf2c9f64b87bdf27a4d7c5b5ca9cf2c7f4932e84f3cef99a80a3b65911b2c3aa09&id=654a6491f7ee5f3c25ce1ced\",\n    \"vendor_id\": \"654a6491f7ee5f3c25ce1ced\",\n    \"password\": \"Password@101\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{vendor_portal_url}}/auth//password-reset"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						}
+					],
+					"id": "0cee54f8-d0c7-4fe4-b868-6716f994f5c1"
+				},
+				{
+					"name": "Merchant Invite Sign Up",
+					"item": [
+						{
+							"name": "Merchant Invite Sign up",
+							"id": "d89d7f0d-9c7a-4a8b-94ca-a75454673af4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorName\": \"Ibilad Limited\",\n    \"email\": \"ibilad@yopmail.com\",\n    \"phoneNumber\": \"09022883344\",\n    \"password\": \"Password@101\",\n    \"confirmPassword\": \"Password@101\",\n    \"token\": \"3c67ac3d2ac128dac65520424b3c474b:rn92e6db25628cae68b8f756d94c6e6140a79491e84046561d957d47261f9ac58b06e3eab05d56c274fb435d5ec5d6106bb097d40543ad607692773fc6a621d046162262091e97ec1c8c469870f580aa517e69bd1af3416ee9d54a7fec6f577735e84bfb9167fcf67ccb58bd8b41a19a1afb27a8a5252a7615110b097ace0adda1d8329c558294e2dd4f99161aaf1027d901bb62ee22e0ddb844ec04ae74c04bb6\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}/auth/signup-invited"
+							},
+							"response": [
+								{
+									"id": "6dd39d6c-8dbb-471d-9e72-5aa82be83f89",
+									"name": "Sign in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"ololade28@yopmail.com\",\n    \"password\": \"%xmo4Q1h2O$zdERk\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://0.0.0.0:3030/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4MDY4NDg3ODIzIiwiaWF0IjoxNjk5MDA3MDU0LCJleHAiOjE2OTkwMDg4NTQsImlzcyI6IkR1cGxvIn0.jVWDW_fbIrE120_lJrsTQ9T8_Wr6uRLspTBfofgP1X0\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImlhdCI6MTY5OTAwNzA1NCwiZXhwIjoxNzAxNTk5MDU0LCJpc3MiOiJEdXBsbyJ9.GDinhqffikycFTuTLaMkaIxsgu9y6oEdL9oOabe1CKQ\",\n    \"token_type\": \"bearer\",\n    \"expires\": 1800\n}"
+								}
+							]
+						}
+					],
+					"id": "508eb146-51d3-4ce5-a59e-3c21ea669f8e"
+				},
+				{
+					"name": "Change Password",
+					"item": [
+						{
+							"name": "Change Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "45426604-441a-4df6-a044-2f3b0fdd0573",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body contains property status, message\", function () {",
+											"    pm.expect(jsonData).to.have.property(\"status\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"message\").to.not.be.empty",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "58652c56-77f9-472f-b00b-62949ccffc1e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDRiNTA3ZDkxOWFjYzM0MjQ4MDhhYSIsImJ1c2luZXNzTmFtZSI6Ik1hcmJsZSBMaW1pdGVkIiwiZW1haWwiOiJhZGVvbGF2ZW5kb3JAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4OTY3ODg3NzY3IiwiaWF0IjoxNzA3NTEwNjg0LCJleHAiOjE3MDc1MTI0ODQsImlzcyI6IkR1cGxvIn0.7XMH5eK79VWeB0VkQJZ32IzXrX61OAx5-AIbk6iBNOA"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"oldPassword\": \"Qwerty123@\",\n    \"newPassword\": \"Qwerty1234@\",\n    \"confirmPassword\": \"Qwerty1234@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/change-password"
+							},
+							"response": [
+								{
+									"id": "ba11ddeb-4fda-4754-aaa0-e28f4cc128f5",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oldPassword\": \"Password@101\",\n    \"newPassword\": \"Password@102\",\n    \"confirmPassword\": \"Password@102\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{vendor_portal_url}}/auth/change-password"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Change Password with invalid newPassword",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "53fc8d53-e217-4ca3-a2f6-42c1257cee28",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body contains property status, message\", function () {",
+											"    pm.expect(jsonData).to.have.property(\"status\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"error\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"error_message\").to.not.be.empty",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "d43f7aba-3849-4945-8823-6f127de2b94c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDRiNTA3ZDkxOWFjYzM0MjQ4MDhhYSIsImJ1c2luZXNzTmFtZSI6Ik1hcmJsZSBMaW1pdGVkIiwiZW1haWwiOiJhZGVvbGF2ZW5kb3JAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4OTY3ODg3NzY3IiwiaWF0IjoxNzA3NTEwNjg0LCJleHAiOjE3MDc1MTI0ODQsImlzcyI6IkR1cGxvIn0.7XMH5eK79VWeB0VkQJZ32IzXrX61OAx5-AIbk6iBNOA"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"oldPassword\": \"Qwerty123@\",\n    \"newPassword\": \"Password@101\",\n    \"confirmPassword\": \"Qwerty1234@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/change-password"
+							},
+							"response": [
+								{
+									"id": "438f2be8-88d0-4428-a907-84c0d75038ce",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oldPassword\": \"Password@101\",\n    \"newPassword\": \"Password@102\",\n    \"confirmPassword\": \"Password@102\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{vendor_portal_url}}/auth/change-password"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Change Password with invalid confirmPassword",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6e4d8339-3d37-430e-ac43-5871372c9a6c",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body contains property status, message\", function () {",
+											"    pm.expect(jsonData).to.have.property(\"status\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"error\").to.not.be.empty;",
+											"    pm.expect(jsonData).to.have.property(\"error_message\").to.not.be.empty",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "beca910a-6b02-492f-a428-433f3cb851df",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDRiNTA3ZDkxOWFjYzM0MjQ4MDhhYSIsImJ1c2luZXNzTmFtZSI6Ik1hcmJsZSBMaW1pdGVkIiwiZW1haWwiOiJhZGVvbGF2ZW5kb3JAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4OTY3ODg3NzY3IiwiaWF0IjoxNzA3NTEwNjg0LCJleHAiOjE3MDc1MTI0ODQsImlzcyI6IkR1cGxvIn0.7XMH5eK79VWeB0VkQJZ32IzXrX61OAx5-AIbk6iBNOA"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"oldPassword\": \"Qwerty123@\",\n    \"newPassword\": \"Qwerty1234@\",\n    \"confirmPassword\": \"Password@101\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}auth/change-password"
+							},
+							"response": [
+								{
+									"id": "ae79f02d-18d2-4578-9e47-0c8d8748a951",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"oldPassword\": \"Password@101\",\n    \"newPassword\": \"Password@102\",\n    \"confirmPassword\": \"Password@102\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{vendor_portal_url}}/auth/change-password"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						}
+					],
+					"id": "a0e8a2cd-02ca-4ac5-9d93-8492c8aa5abe"
+				}
+			],
+			"id": "61ad3db6-e08f-4911-808c-b79d0e71c121"
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "Upload Invoice",
+					"item": [
+						{
+							"name": "Upload Invoice",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "02a49864-fcce-492a-9173-c4c9691a443f",
+										"exec": [
+											"const jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Body contains property invoice and it's an object\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('object');",
+											"    pm.expect(pm.response.json().invoice).to.be.an('object');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "7b7e4b67-5ca6-4635-bbc4-c4c0a94cbe2a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDRiNTA3ZDkxOWFjYzM0MjQ4MDhhYSIsImJ1c2luZXNzTmFtZSI6Ik1hcmJsZSBMaW1pdGVkIiwiZW1haWwiOiJhZGVvbGF2ZW5kb3JAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4OTY3ODg3NzY3IiwiaWF0IjoxNzA3NTEyODMwLCJleHAiOjE3MDc1MTQ2MzAsImlzcyI6IkR1cGxvIn0.7gKa2zlASfrs35EM14d9UrFVqAI2Vxfo805C3dr70NA"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "invoice",
+											"type": "file",
+											"src": "a-wMhKYYZ/catering-invoice-template.pdf"
+										},
+										{
+											"key": "totalAmount",
+											"value": "500",
+											"type": "text"
+										},
+										{
+											"key": "invoiceNumber",
+											"value": "7838495951",
+											"type": "text"
+										},
+										{
+											"key": "purchaseOrder",
+											"type": "file",
+											"src": "yRJa4_w5C/catering-invoice-template.pdf"
+										},
+										{
+											"key": "purchaseOrderNumber",
+											"value": "885899595058",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{vendor_portal_url}}vendors/upload-file"
+							},
+							"response": [
+								{
+									"id": "8c056b91-6a7f-4691-b831-13a9ebc04775",
+									"name": "Upload Invoice",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"type": "file",
+													"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+													"src": "/Users/bhordhundey/Downloads/Screenshot 2023-10-10 at 14.22.01.png"
+												},
+												{
+													"key": "totalAmount",
+													"value": "500",
+													"type": "text"
+												},
+												{
+													"key": "invoiceNumber",
+													"value": "7838775757",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://0.0.0.0:3030/vendors/upload-file"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"vendorInvoices\": [\n        {\n            \"_id\": \"6544ccd6ce8aa239ef71509c\",\n            \"merchantId\": \"2540e38e-f5ff-4dc2-be7d-3de138bde0de\",\n            \"vendorRef\": \"rec_ocdMxIWbv5gV\",\n            \"documentUrl\": \"https://dp-vendors.s3.eu-west-1.amazonaws.com/25a6c1f2-97d3-499f-a216-accc13434e64.png\",\n            \"invoiceNumber\": \"7838775757\",\n            \"totalAmount\": \"500\",\n            \"vendorId\": \"65449d4a29760d5207086e7d\",\n            \"status\": \"PENDING\",\n            \"createdAt\": \"2023-11-03T10:35:00.798Z\"\n        }\n    ]\n}"
+								}
+							]
+						}
+					],
+					"id": "c9eab2db-cfaa-448c-9aa1-ece8e46d72da"
+				},
+				{
+					"name": "Get Vendor Invoice",
+					"item": [
+						{
+							"name": "Get Vendor Invoices",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "65e9b5b3-c18e-4e7b-a692-265c2e33c963",
+										"exec": [
+											"const jsonData = pm.response.json;",
+											"",
+											"pm.test(\"Body contains vendorInvoices\", function () {",
+											"    var responseJSON = pm.response.json();",
+											"    pm.expect(responseJSON).to.be.an('object');",
+											"    pm.expect(responseJSON).to.have.property('vendorInvoices');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "0634334c-8d7f-4277-a53c-00127e09596a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDRiNTA3ZDkxOWFjYzM0MjQ4MDhhYSIsImJ1c2luZXNzTmFtZSI6Ik1hcmJsZSBMaW1pdGVkIiwiZW1haWwiOiJhZGVvbGF2ZW5kb3JAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4OTY3ODg3NzY3IiwiaWF0IjoxNzA3NTEyODMwLCJleHAiOjE3MDc1MTQ2MzAsImlzcyI6IkR1cGxvIn0.7gKa2zlASfrs35EM14d9UrFVqAI2Vxfo805C3dr70NA"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{vendor_portal_url}}vendors/invoices?limit=20&page=1&isBill=false",
+									"host": [
+										"{{vendor_portal_url}}vendors"
+									],
+									"path": [
+										"invoices"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "20"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "isBill",
+											"value": "false"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "55d1366f-3950-41c6-93ad-623a7b9e1998",
+									"name": "Sign in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"ololade28@yopmail.com\",\n    \"password\": \"%xmo4Q1h2O$zdERk\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://0.0.0.0:3030/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4MDY4NDg3ODIzIiwiaWF0IjoxNjk5MDA3MDU0LCJleHAiOjE2OTkwMDg4NTQsImlzcyI6IkR1cGxvIn0.jVWDW_fbIrE120_lJrsTQ9T8_Wr6uRLspTBfofgP1X0\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImlhdCI6MTY5OTAwNzA1NCwiZXhwIjoxNzAxNTk5MDU0LCJpc3MiOiJEdXBsbyJ9.GDinhqffikycFTuTLaMkaIxsgu9y6oEdL9oOabe1CKQ\",\n    \"token_type\": \"bearer\",\n    \"expires\": 1800\n}"
+								}
+							]
+						}
+					],
+					"id": "d0e55e40-d661-4455-9557-82594ca8e647"
+				}
+			],
+			"id": "7298c7fd-bdb2-49fd-b9cd-e94eda29d467"
+		},
+		{
+			"name": "Merchant Transactions",
+			"item": [
+				{
+					"name": "Get Transactions",
+					"item": [
+						{
+							"name": "Get Transactions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "08f564e2-dd2d-46d7-8c1b-6342346ebfd3",
+										"exec": [
+											"const jsonData = pm.response.json()",
+											"",
+											"pm.test(\"Body conatains property transactions and it's an object\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('object');",
+											"    pm.expect(pm.response.json()).to.have.property('transactions').that.is.an('array');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "fa4114fb-ae40-4e57-b52c-66f31ef099d8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDRiNTA3ZDkxOWFjYzM0MjQ4MDhhYSIsImJ1c2luZXNzTmFtZSI6Ik1hcmJsZSBMaW1pdGVkIiwiZW1haWwiOiJhZGVvbGF2ZW5kb3JAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4OTY3ODg3NzY3IiwiaWF0IjoxNzA3NTEyODMwLCJleHAiOjE3MDc1MTQ2MzAsImlzcyI6IkR1cGxvIn0.7gKa2zlASfrs35EM14d9UrFVqAI2Vxfo805C3dr70NA"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{vendor_portal_url}}transactions",
+									"host": [
+										"{{vendor_portal_url}}transactions"
+									],
+									"query": [
+										{
+											"key": "billNumber",
+											"value": "393721567",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "fa1d664d-a3d0-41e4-9364-f12a5cd652dc",
+									"name": "Sign in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"ololade28@yopmail.com\",\n    \"password\": \"%xmo4Q1h2O$zdERk\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://0.0.0.0:3030/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"SUCCESS\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4MDY4NDg3ODIzIiwiaWF0IjoxNjk5MDA3MDU0LCJleHAiOjE2OTkwMDg4NTQsImlzcyI6IkR1cGxvIn0.jVWDW_fbIrE120_lJrsTQ9T8_Wr6uRLspTBfofgP1X0\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDQ5ZDRhMjk3NjBkNTIwNzA4NmU3ZCIsImlhdCI6MTY5OTAwNzA1NCwiZXhwIjoxNzAxNTk5MDU0LCJpc3MiOiJEdXBsbyJ9.GDinhqffikycFTuTLaMkaIxsgu9y6oEdL9oOabe1CKQ\",\n    \"token_type\": \"bearer\",\n    \"expires\": 1800\n}"
+								},
+								{
+									"id": "3071114a-d504-427c-a887-3ecf589e7c73",
+									"name": "Get Transactions",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{vendor_portal_url}}/transactions",
+											"host": [
+												"{{vendor_portal_url}}"
+											],
+											"path": [
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "billNumber",
+													"value": "393721567",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						}
+					],
+					"id": "594630ed-ca2a-4f99-bebb-3dea8eedba1c"
+				}
+			],
+			"id": "c2255ae2-c28b-4575-871f-55c2e7a4cc3d"
+		},
+		{
+			"name": "Webhook",
+			"id": "5a543c80-83f9-4fcf-ba17-e89a18afd672",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGE2NDkxZjdlZTVmM2MyNWNlMWNlZCIsImJ1c2luZXNzTmFtZSI6Ik9sb2xhZCBMaW1pdGVkIiwiZW1haWwiOiJvbG9sYWRlMjhAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjgwOTk1MDk1OTUiLCJpYXQiOjE2OTkzOTIyNTUsImV4cCI6MTY5OTM5NDA1NSwiaXNzIjoiRHVwbG8ifQ.yav7BJFt4ezalt2XgByfMgWKCndiHNXbPHLwfC__j-4"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"business_id\":\"7ecc0b08-50f4-49f0-8ea3-6e98ba27f0fd\",\n  \"event\": \"VENDOR_INVOICE_PAYMENT_STATUS\",\n  \"data\": {\n        \"vendor_ref\": \"rec_RZBYh9aAQVVU\",\n        \"invoice_number\": \"85947575\",\n        \"amount\": \"700\",\n        \"payment_status\": \"PartiallyPaid\",\n        \"transaction\": {\n\t\t\t\t\t\"vendor_ref\": \"rec_RZBYh9aAQVVU\",\n\t\t\t\t\t\"invoice_number\": \"85947575\",\n                    \"bill_number\": \"393721567\",\n\t\t\t\t\t\"transaction_ref\": \"tran_XWZZcnJd1L1o\",\n\t\t\t\t\t\"amount\": 700,\n\t\t\t\t\t\"description\": \"Okayyy\",\n\t\t\t\t\t\"business_id\": \"7ecc0b08-50f4-49f0-8ea3-6e98ba27f0fd\",\n\t\t\t\t\t\"type\": \"debit\",\n\t\t\t\t\t\"status\": \"successful\",\n\t\t\t\t\t\"date\": \"2023-11-15T22:06:16.020+00:00\",\n\t\t\t\t\t\"category\": \"bank_transfer\",\n                    \"receiver_details\": {\n                        \"bankName\": \"Guaranty Trust Bank\",\n                        \"accountNumber\": \"0114940839\",\n                        \"accountName\": \"ADEWUYI ADEOLA ADEJOKE\",\n                        \"bankCode\": \"058\"\n                    }\n\t\t\t\t}\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{vendor_portal_url}}/vendors/webhook"
+			},
+			"response": [
+				{
+					"id": "2c7d76eb-1ae1-4d93-b0ec-8ea01c7fc6e2",
+					"name": "Verify Invoice Approval Status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"business_id\":\"2d67a539-a6e1-484a-b7f5-c24445ec50c1\",\n  \"event\": \"VENDOR_VERIFICATION_STATUS\",\n  \"data\": {\n        \"vendor_ref\": \"rec_pgyo6NOGqZb2\",\n        \"invoice_number\": \"23232\",\n        \"status\": \"APPROVED\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{vendor_portal_url}}/vendors/webhook"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"ok\"\n}"
+				},
+				{
+					"id": "82b8e6bf-0e82-44b3-8f50-848cc685a2c3",
+					"name": "Verify Payment Status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"business_id\":\"2d67a539-a6e1-484a-b7f5-c24445ec50c1\",\n  \"event\": \"VENDOR_INVOICE_PAYMENT_STATUS\",\n  \"data\": {\n        \"vendor_ref\": \"rec_RZBYh9aAQVVU\",\n        \"invoice_number\": \"85947575\",\n        \"amount\": \"700\",\n        \"payment_status\": \"PartiallyPaid\",\n        \"transaction\": {\n\t\t\t\t\t\"vendor_ref\": \"rec_RZBYh9aAQVVU\",\n\t\t\t\t\t\"invoice_number\": \"85947575\",\n                    \"bill_number\": \"393721567\",\n\t\t\t\t\t\"transaction_ref\": \"tran_XWZZcnJd1L1o\",\n\t\t\t\t\t\"amount\": 700,\n\t\t\t\t\t\"description\": \"Okayyy\",\n\t\t\t\t\t\"business_id\": \"7ecc0b08-50f4-49f0-8ea3-6e98ba27f0fd\",\n\t\t\t\t\t\"type\": \"debit\",\n\t\t\t\t\t\"status\": \"successful\",\n\t\t\t\t\t\"date\": \"2023-11-15T22:06:16.020+00:00\",\n\t\t\t\t\t\"category\": \"bank_transfer\",\n                    \"receiver_details\": {\n                        \"bankName\": \"Guaranty Trust Bank\",\n                        \"accountNumber\": \"0114940839\",\n                        \"accountName\": \"ADEWUYI ADEOLA ADEJOKE\",\n                        \"bankCode\": \"058\"\n                    }\n\t\t\t\t}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{vendor_portal_url}}/vendors/webhook"
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"responseTime": null,
+					"body": null
+				},
+				{
+					"id": "78e1deb8-d9cd-413c-a8f2-75e9f7eb6e9f",
+					"name": "Convert Invoice to Bill",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event\": \"CONVERT_INVOICE_TO_BILL\",\n    \"data\": {\n        \"vendor_ref\": \"rec_RZBYh9aAQVVU\",\n        \"invoice_number\": \"647585895\",\n        \"bill_number\": \"582590560\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{vendor_portal_url}}/vendors/webhook"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"ok\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7f2a89d7-6d7d-454c-838e-ca7b2e1b115d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1f4119b3-e9e0-4559-b402-e9bad7d85e73",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "vendor_portal_url",
+			"value": "https://vendor-platform-api.dev.tryduplo.com/"
+		}
+	]
+}
