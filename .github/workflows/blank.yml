@@ -1,0 +1,74 @@
+name: Postman Test and Allure Report
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install newman and newman-reporter-allure
+        run: |
+          npm install -g newman newman-reporter-allure
+          echo "Newman and newman-reporter-allure installed."
+
+      - name: Run Postman tests
+        if: always()
+        continue-on-error: true
+        run: |
+          newman run Postman-Collections/Vendor-Portal-API.json --reporters cli,allure
+          echo "Postman tests run."
+
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Allure report action
+        id: build
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        continue-on-error: true
+        with:
+          allure_results: allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+
+      - name: Wait for Allure report to be generated
+        if: always()
+        continue-on-error: true
+        run: sleep 10
+
+      - name: Update Allure Report Widget Title
+        continue-on-error: true
+        if: steps.build.outcome == 'success'
+        run: |
+          latest_folder=$(find allure-history -mindepth 1 -maxdepth 1 -type d -name '[0-9]*' | sort -n | tail -n 1)
+          echo "Latest Folder: $latest_folder"
+          summary_path="$latest_folder/widgets/summary.json"
+          echo "Summary Path: $summary_path"
+          if [[ -e "$summary_path" ]]; then
+            cat "$summary_path"
+            sudo sed -i 's/Allure Report/Duplo - API Quality Readiness/' "$summary_path"
+            cat "$summary_path"
+          else
+            echo "Error: summary.json not found in the latest folder."
+          fi
+
+      - name: Deploy report to GitHub Pages
+        id: deploy
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
