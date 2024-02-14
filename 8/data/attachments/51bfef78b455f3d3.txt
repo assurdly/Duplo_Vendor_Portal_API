@@ -1,0 +1,8 @@
+{
+    "vendorName": "Ibilad Limited",
+    "email": "ibilad@yopmail.com",
+    "phoneNumber": "09022883344",
+    "password": "Password@101",
+    "confirmPassword": "Password@101",
+    "token": "3c67ac3d2ac128dac65520424b3c474b:rn92e6db25628cae68b8f756d94c6e6140a79491e84046561d957d47261f9ac58b06e3eab05d56c274fb435d5ec5d6106bb097d40543ad607692773fc6a621d046162262091e97ec1c8c469870f580aa517e69bd1af3416ee9d54a7fec6f577735e84bfb9167fcf67ccb58bd8b41a19a1afb27a8a5252a7615110b097ace0adda1d8329c558294e2dd4f99161aaf1027d901bb62ee22e0ddb844ec04ae74c04bb6"
+}
