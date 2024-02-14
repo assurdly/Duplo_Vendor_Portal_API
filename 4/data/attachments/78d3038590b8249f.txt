@@ -1,0 +1,4 @@
+{
+    "email": "adeolavendor@yopmail.com",
+    "password": "Qwerty123@"
+}
