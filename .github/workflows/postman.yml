@@ -58,7 +58,7 @@ jobs:
           echo "Summary Path: $summary_path"
           if [[ -e "$summary_path" ]]; then
             cat "$summary_path"
-            sudo sed -i 's/Allure Report/Duplo - API Quality Readiness/' "$summary_path"
+            sudo sed -i 's/Allure Report/Duplo Vendor Portal - API Quality Readiness/' "$summary_path"
             cat "$summary_path"
           else
             echo "Error: summary.json not found in the latest folder."
