@@ -1,0 +1,29 @@
+{
+  "business_id":"7ecc0b08-50f4-49f0-8ea3-6e98ba27f0fd",
+  "event": "VENDOR_INVOICE_PAYMENT_STATUS",
+  "data": {
+        "vendor_ref": "rec_RZBYh9aAQVVU",
+        "invoice_number": "85947575",
+        "amount": "700",
+        "payment_status": "PartiallyPaid",
+        "transaction": {
+					"vendor_ref": "rec_RZBYh9aAQVVU",
+					"invoice_number": "85947575",
+                    "bill_number": "393721567",
+					"transaction_ref": "tran_XWZZcnJd1L1o",
+					"amount": 700,
+					"description": "Okayyy",
+					"business_id": "7ecc0b08-50f4-49f0-8ea3-6e98ba27f0fd",
+					"type": "debit",
+					"status": "successful",
+					"date": "2023-11-15T22:06:16.020+00:00",
+					"category": "bank_transfer",
+                    "receiver_details": {
+                        "bankName": "Guaranty Trust Bank",
+                        "accountNumber": "0114940839",
+                        "accountName": "ADEWUYI ADEOLA ADEJOKE",
+                        "bankCode": "058"
+                    }
+				}
+    }
+}

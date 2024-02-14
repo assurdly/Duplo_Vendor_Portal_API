@@ -1,0 +1,5 @@
+{
+    "reset_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDRiNTA3ZDkxOWFjYzM0MjQ4MDhhYSIsImlhdCI6MTcwNzUxMDY4NCwiZXhwIjoxNzEwMTAyNjg0LCJpc3MiOiJEdXBsbyJ9.alxf1Gu33on___IA4_mlNjJVCJvJOoInji6BH4JOUUo",
+    "vendor_id": "6544b507d919acc3424808aa",
+    "password": "Qwerty1234@"
+}
