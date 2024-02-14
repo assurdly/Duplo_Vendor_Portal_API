@@ -1,0 +1,11 @@
+{
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDRiNTA3ZDkxOWFjYzM0MjQ4MDhhYSIsImJ1c2luZXNzTmFtZSI6Ik1hcmJsZSBMaW1pdGVkIiwiZW1haWwiOiJhZGVvbGF2ZW5kb3JAeW9wbWFpbC5jb20iLCJwaG9uZU51bWJlciI6IjA4OTY3ODg3NzY3IiwiaWF0IjoxNzA3NTEyODMwLCJleHAiOjE3MDc1MTQ2MzAsImlzcyI6IkR1cGxvIn0.7gKa2zlASfrs35EM14d9UrFVqAI2Vxfo805C3dr70NA",
+    "User-Agent": "PostmanRuntime/7.36.3",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "4fd0369e-8acc-4b37-8b23-ccf5f97fe4f2",
+    "Host": "vendor-platform-api.dev.tryduplo.com",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Content-Length": "421"
+}

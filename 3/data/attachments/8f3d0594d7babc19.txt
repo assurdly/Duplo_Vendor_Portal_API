@@ -1,0 +1,7 @@
+{
+    "vendorName": "EmgeeStore",
+    "email": "mosesgeorge2605@gmail.com",
+    "phoneNumber": "09167645739",
+    "password": "Qwerty123@",
+    "confirmPassword": "Qwerty123@"
+}
