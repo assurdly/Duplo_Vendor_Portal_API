@@ -28,7 +28,8 @@
 											"          pm.expect(jsonData).to.have.property(\"token_type\").to.not.be.empty;",
 											"            pm.expect(jsonData).to.have.property(\"expires\")",
 											"            pm.expect(typeof jsonData.expires).to.eql(\"number\")",
-											"})"
+											"})",
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -43,7 +44,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"adeolavendor@yopmail.com\",\n    \"password\": \"Qwerty123@\"\n}",
+									"raw": "{\n    \"email\": \"adeolavendor@yopmail.com\",\n    \"password\": \"Qwerty1234@\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -262,7 +263,8 @@
 											"    pm.expect(jsonData).to.have.property('refresh_token');",
 											"    pm.expect(jsonData).to.have.property('token_type');",
 											"    pm.expect(jsonData).to.have.property('expires');",
-											"});"
+											"});",
+											""
 										],
 										"type": "text/javascript"
 									}
