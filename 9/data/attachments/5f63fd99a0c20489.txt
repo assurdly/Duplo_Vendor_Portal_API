@@ -1,0 +1,5 @@
+{
+    "oldPassword": "Qwerty123@",
+    "newPassword": "Password@101",
+    "confirmPassword": "Qwerty1234@"
+}

@@ -1,0 +1,4 @@
+{
+    "otp": "221345",
+    "email": "mosesgeorge2605@@gmail.com"
+}
