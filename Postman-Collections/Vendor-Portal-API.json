@@ -1828,6 +1828,366 @@
 			"id": "c2255ae2-c28b-4575-871f-55c2e7a4cc3d"
 		},
 		{
+			"name": "Invoice Financing",
+			"item": [
+				{
+					"name": "Submit KYB Documents",
+					"id": "cb85d803-8a1f-462c-9a33-7ebe5b015279",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cac_certificate",
+									"type": "file",
+									"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+									"src": "/Users/mac/Downloads/transaction-240222025155707539.pdf"
+								},
+								{
+									"key": "cac_status_report",
+									"type": "file",
+									"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+									"src": "/Users/mac/Downloads/transaction-240222025155707539.pdf"
+								},
+								{
+									"key": "loan_agreement",
+									"type": "file",
+									"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+									"src": "/Users/mac/Downloads/transaction-240222025155707539.pdf"
+								},
+								{
+									"key": "guarantee_document",
+									"type": "file",
+									"src": "/Users/mac/Downloads/transaction-240222025155707539.pdf"
+								}
+							]
+						},
+						"url": "{{vendor_portal_url}}/vendors/kyb"
+					},
+					"response": [
+						{
+							"id": "bca57f4d-5324-44c0-a523-3254b58ccd9f",
+							"name": "Submit KYB Documents",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cac_certificate",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"src": "/Users/mac/Downloads/transaction-240222025155707539.pdf"
+										},
+										{
+											"key": "cac_status_report",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"src": "/Users/mac/Downloads/transaction-240222025155707539.pdf"
+										},
+										{
+											"key": "loan_agreement",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"src": "/Users/mac/Downloads/transaction-240222025155707539.pdf"
+										},
+										{
+											"key": "guarantee_document",
+											"type": "file",
+											"src": "/Users/mac/Downloads/transaction-240222025155707539.pdf"
+										}
+									]
+								},
+								"url": "{{vendor_portal_url}}/vendors/kyb"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"61-EQyOyKcGM4r+qlrcAnz6UFf/kZE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Feb 2024 10:02:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"vendor\": {\n        \"_id\": \"654a6491f7ee5f3c25ce1ced\",\n        \"vendorName\": \"Ololad Limited\",\n        \"kybStatus\": \"pending\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Activate Vendor Invoice Financing",
+					"id": "53546297-e402-4a5d-8516-245c17eaf8b3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "dpmlekdno",
+								"value": "{{dpmlekdno}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vendorRef\": \"rec_RZBYh9aAQVVU\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{vendor_portal_url}}/api/vendor/activate"
+					},
+					"response": [
+						{
+							"id": "26c20aef-5819-43bb-b6fb-c3dd0b0fd2c4",
+							"name": "Activate Vendor Invoice Financing",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorId\":\"654a6491f7ee5f3c25ce1ced\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}/api/vendor/activate"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "158"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9e-eWcTn2cl+vtSXJYO3itjrAQA3Ek\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Feb 2024 11:03:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"vendor\": {\n        \"_id\": \"654a6491f7ee5f3c25ce1ced\",\n        \"vendorName\": \"Ololad Limited\",\n        \"email\": \"ololade28@yopmail.com\",\n        \"phoneNumber\": \"8099509595\",\n        \"kybStatus\": \"activated\"\n    }\n}"
+						},
+						{
+							"id": "8eff5ee5-b0c3-4bc0-8c6f-d2da359dd12f",
+							"name": "Activate Vendor Invoice Financing",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "dpmlekdno",
+										"value": "{{dpmlekdno}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorRef\": \"rec_RZBYh9aAQVVU\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}/api/vendor/activate"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "211"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d3-vp7Btl9wJVQodKtaXq2xRrO3rhg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Mar 2024 12:32:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"vendor\": {\n        \"_id\": \"654a6491f7ee5f3c25ce1ced\",\n        \"vendorName\": \"Ololad Limited\",\n        \"email\": \"ololade28@yopmail.com\",\n        \"phoneNumber\": \"8099509595\",\n        \"kybStatus\": \"activated\",\n        \"kybStatusActivationDate\": \"2024-03-01T12:32:29.000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Request Invoice Financing",
+					"id": "15de8bca-ec85-4b77-86c3-b1bd360bdb66",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"billNumber\": \"564827009\",\n    \"vendorRef\": \"rec_RZBYh9aAQVVU\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{vendor_portal_url}}/vendors/invoices/financing"
+					},
+					"response": [
+						{
+							"id": "27f29975-848f-4d69-84ea-883e9591f3af",
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"billNumber\": \"564827009\",\n    \"vendorRef\": \"rec_RZBYh9aAQVVU\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{vendor_portal_url}}/vendors/invoices/financing"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "482"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e2-7FVeGqEf6+tWtiDaamR4uuroSVU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Mar 2024 15:26:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"data\": {\n        \"_id\": \"6557d935660ac40f27e503cc\",\n        \"merchantId\": \"2540e38e-f5ff-4dc2-be7d-3de138bde0de\",\n        \"vendorRef\": \"rec_RZBYh9aAQVVU\",\n        \"documentUrl\": \"https://dp-vendors.s3.eu-west-1.amazonaws.com/b4a3b4ca-971a-4199-a4b5-8d6b6c8864b2/THIRD PARTY.pdf\",\n        \"invoiceNumber\": \"90747575\",\n        \"totalAmount\": \"600\",\n        \"vendorId\": \"654a6491f7ee5f3c25ce1ced\",\n        \"status\": \"APPROVED\",\n        \"paymentStatus\": \"Open\",\n        \"isBill\": true,\n        \"createdAt\": \"2023-11-17T21:20:53.694Z\",\n        \"billNumber\": \"564827009\",\n        \"invoiceFinancingStatus\": \"pending\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"id": "5ef01195-7145-4fa1-8301-e00dcc5a331b"
+		},
+		{
 			"name": "Webhook",
 			"id": "5a543c80-83f9-4fcf-ba17-e89a18afd672",
 			"protocolProfileBehavior": {
@@ -1936,8 +2296,83 @@
 					"body": "{\n    \"message\": \"ok\"\n}"
 				}
 			]
+		},
+		{
+			"name": "Get Self",
+			"id": "2eca85c6-1ded-4cc7-98b5-2363d116ce52",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{vp_token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{vendor_portal_url}}/vendors/me"
+			},
+			"response": [
+				{
+					"id": "91b59fd9-8e96-4d4e-947d-b1eed9b31e4f",
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "{{vendor_portal_url}}/vendors/me"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "158"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9e-eWcTn2cl+vtSXJYO3itjrAQA3Ek\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Feb 2024 11:27:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"vendor\": {\n        \"_id\": \"654a6491f7ee5f3c25ce1ced\",\n        \"vendorName\": \"Ololad Limited\",\n        \"email\": \"ololade28@yopmail.com\",\n        \"phoneNumber\": \"8099509595\",\n        \"kybStatus\": \"activated\"\n    }\n}"
+				}
+			]
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{vendor_token}}"
+		}
+	},
 	"event": [
 		{
 			"listen": "prerequest",
@@ -1962,6 +2397,7 @@
 	],
 	"variable": [
 		{
+			"id": "f971b01b-465d-4a59-b9c5-b32e3c2401fa",
 			"key": "vendor_portal_url",
 			"value": "https://vendor-platform-api.dev.tryduplo.com/"
 		}
